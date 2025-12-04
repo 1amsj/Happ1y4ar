@@ -1,0 +1,32 @@
+.login-container{
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 50vh;
+    width: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.standar-button{
+    background-color: #EC221F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin:10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.standar-input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
