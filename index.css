@@ -1,16 +1,36 @@
+body{
+    background-color: #f5f6fa;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    min-width: 100vw;
+    background-color: #f5f6fa; 
+}
+
+
 .login-container{
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     height: 50vh;
     width: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     
 }
-
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .standar-button{
     background-color: #EC221F;
     color: white;
@@ -24,9 +44,35 @@
 
 .standar-input{
     width: 100%;
-    padding: 10px;
-    margin: 10px 10px;
+    height: 6vh;
+    padding: 10px 14px;
+    margin: 12px 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
     box-sizing: border-box;
+    font-size: 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* efecto al hacer focus */
+.standar-input:focus{
+    outline: none;
+    border-color: #EC221F;
+    box-shadow: 0 0 5px rgba(236, 34, 31, 0.4);
+}
+
+.forgot-password{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.forgot-password a{
+    text-decoration: none;
+    color: #EC221F;
+    font-size: 14px;
+}
+
+.forgot-password a:hover{
+    text-decoration: underline;
 }

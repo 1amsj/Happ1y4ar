@@ -1,8 +1,12 @@
 const modal = document.getElementById("modal1");
 const modal2 = document.getElementById("modal2");
-const finala = document.getElementById("btn-finala");
+const modal3 = document.getElementById("modal3");
+const finala = document.getElementById("btn-accept1");
+const finalb = document.getElementById("btn-accept2");
+const btnForgotPassword = document.getElementById("forgot-password");
 const span = document.querySelector(".close");
 const span2 = document.getElementById("close-modal2");
+const span3 = document.getElementById("close-modal3");
 const entendido = document.getElementById("btn-accept");
 const noentendido = document.getElementById("btn-noaccept");
 
@@ -13,15 +17,20 @@ document.querySelector("form").addEventListener("submit", function (e) {
     const pass = document.getElementById("password").value.trim();
 
     // Credenciales permitidas
-    const validUser = "admin";
-    const validPass = "admin123";
+    const validUser = "caramelo";
+    const validPass = "16082024";
 
     if (user === validUser && pass === validPass) {
         window.location.href = "main.html"; // Página a donde quieres redirigir
     } else {
-        modal.style.display = "block";
+        modal3.style.display = "block";
     }
 });
+
+btnForgotPassword.onclick = function (e) {
+    e.preventDefault();
+    modal.style.display = "block";
+}
 
 span.onclick = function () {
     modal.style.display = "none";
@@ -36,16 +45,25 @@ window.onclick = function (event) {
 
 entendido.onclick = function () {
     modal.style.display = "none";
+
 }
+finala.onclick = function () {
+    modal.style.display = "none";
+}
+finalb.onclick = function () {
+    modal3.style.display = "none";
+}
+
 noentendido.onclick = function () {
     modal.style.display = "none";
     modal2.style.display = "block";
 }
 
-finala.onclick = function () {
-    modal2.style.display = "none";
-}
 
 span2.onclick = function () {
     modal2.style.display = "none";
+}
+
+span3.onclick = function () {
+    modal3.style.display = "none";
 }
