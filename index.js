@@ -11,21 +11,56 @@ const entendido = document.getElementById("btn-accept");
 const noentendido = document.getElementById("btn-noaccept");
 
 document.querySelector("form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Evita enviar el formulario
+    e.preventDefault();
 
-    const user = document.getElementById("username").value.trim();
-    const pass = document.getElementById("password").value.trim();
+    const userInput = document.getElementById("username");
+    const passInput = document.getElementById("password");
 
-    // Credenciales permitidas
-    const validUser = "caramelo";
+    // Normalización
+    const user = userInput.value.trim().toLowerCase();
+    const pass = passInput.value.trim();
+
+    const validUser = "caramelo";   
     const validPass = "16082024";
 
-    if (user === validUser && pass === validPass) {
-        window.location.href = "main.html"; // Página a donde quieres redirigir
-    } else {
-        modal3.style.display = "block";
+    // Expresiones regulares
+    const userRegex = /^[a-z0-9_]{4,20}$/;   // letras, números y _
+    const passRegex = /^[0-9]{6,12}$/;       // solo números
+
+    // Reset visual
+    userInput.classList.remove("input-error");
+    passInput.classList.remove("input-error");
+
+    // Campos vacíos
+    if (!user || !pass) {
+        marcarError(userInput, passInput);
+        mostrarModal("Completa todos los campos");
+        return;
     }
+
+    // Caracteres inválidos
+    if (!userRegex.test(user)) {
+        userInput.classList.add("input-error");
+        mostrarModal("Usuario inválido (solo letras, números y _)");
+        return;
+    }
+
+    if (!passRegex.test(pass)) {
+        passInput.classList.add("input-error");
+        mostrarModal("Contraseña inválida (solo números)");
+        return;
+    }
+
+    // Credenciales incorrectas
+    if (user !== validUser || pass !== validPass) {
+        mostrarModal("Usuario o contraseña incorrectos");
+        return;
+    }
+
+    // Login correcto
+    window.location.href = "main.html";
 });
+
 
 btnForgotPassword.onclick = function (e) {
     e.preventDefault();
@@ -66,4 +101,11 @@ span2.onclick = function () {
 
 span3.onclick = function () {
     modal3.style.display = "none";
+}
+
+function mostrarModal(mensaje){
+    const modal = document.getElementById("modal3");
+    const texto = modal.querySelector(".modal-text");
+    texto.textContent = mensaje;
+    modal.style.display = "block";
 }
